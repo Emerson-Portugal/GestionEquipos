@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+
+<h1>¿Está seguro que desea eliminar a {{ persona.nombres }} {{ persona.apellidos }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+</form>
+<a href="{% url 'equipos:persona_list' %}">Cancelar</a>
+
+{% endblock %}

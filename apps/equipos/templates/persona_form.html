@@ -1,0 +1,15 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+
+<h1>{% if form.instance.pk %}Editar Persona{% else %}Crear Persona{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'equipos:persona_list' %}">Cancelar</a>
+
+{% endblock %}

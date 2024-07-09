@@ -1,0 +1,41 @@
+{% extends "./base.html" %}
+{% block title %}Lista de Equipos{% endblock %}
+{% block body %}
+<h1>Lista de Equipos</h1>
+<a href="{% url 'equipos:equipo_create' 'laptop' %}">Agregar Laptop</a>
+<a href="{% url 'equipos:equipo_create' 'pc' %}">Agregar PC</a>
+<a href="{% url 'equipos:equipo_create' 'celular' %}">Agregar Celular</a>
+
+<h2>Laptops</h2>
+<ul>
+    {% for laptop in laptops %}
+    <li>
+        {{ laptop.marca }} - {{ laptop.modelo }}
+        <a href="{% url 'equipos:equipo_update' 'laptop' laptop.pk %}">Editar</a>
+        <a href="{% url 'equipos:equipo_delete' 'laptop' laptop.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>PCs</h2>
+<ul>
+    {% for pc in pcs %}
+    <li>
+        {{ pc.marca }} - {{ pc.procesador }}
+        <a href="{% url 'equipos:equipo_update' 'pc' pc.pk %}">Editar</a>
+        <a href="{% url 'equipos:equipo_delete' 'pc' pc.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Celulares</h2>
+<ul>
+    {% for celular in celulares %}
+    <li>
+        {{ celular.marca }} - {{ celular.modelo }}
+        <a href="{% url 'equipos:equipo_update' 'celular' celular.pk %}">Editar</a>
+        <a href="{% url 'equipos:equipo_delete' 'celular' celular.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

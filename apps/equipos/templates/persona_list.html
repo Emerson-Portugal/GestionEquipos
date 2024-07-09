@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+
+<h1>Lista de Personas</h1>
+
+<a href="{% url 'equipos:persona_create' %}">Crear nueva persona</a>
+<ul>
+    {% for persona in personas %}
+    <li>
+        <a href="{% url 'equipos:persona_detail' persona.dni %}">{{ persona.nombres }} {{ persona.apellidos }}</a>
+        <a href="{% url 'equipos:persona_update' persona.dni %}">Editar</a>
+        <a href="{% url 'equipos:persona_delete' persona.dni %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

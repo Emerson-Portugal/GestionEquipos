@@ -1,0 +1,15 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+
+<h1>{{ persona.nombres }} {{ persona.apellidos }}</h1>
+<p>DNI: {{ persona.dni }}</p>
+<p>Cargo: {{ persona.cargo }}</p>
+<p>Area: {{ persona.area }}</p>
+<p>Correo: {{ persona.correo }}</p>
+<p>Numero de Celular: {{ persona.numero_celular }}</p>
+<a href="{% url 'equipos:persona_list' %}">Volver a la lista</a>
+
+{% endblock %}
